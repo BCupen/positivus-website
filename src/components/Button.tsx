@@ -17,11 +17,23 @@ export const Button = ({
     switch (variant) {
       case "primary":
       default:
-        return "bg-dark border-dark text-light";
+        return [
+          "bg-dark border-dark text-light",
+          "hover:bg-light hover:text-dark hover:scale-105",
+          "transition-all duration-300",
+        ].join(" ");
       case "secondary":
-        return "bg-primary border-primar text-dark";
+        return [
+          "bg-primary border-primary text-dark",
+          "hover:bg-light hover:text-dark hover:scale-105",
+          "transition-all duration-300",
+        ].join(" ");
       case "outline":
-        return "border-dark bg-transparent text-dark";
+        return [
+          "border-dark bg-transparent text-dark",
+          "hover:bg-dark hover:text-light hover:scale-105",
+          "transition-all duration-300",
+        ].join(" ");
     }
   };
   return (
