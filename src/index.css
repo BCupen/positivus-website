@@ -25,3 +25,7 @@
 .slide-down-fade-in {
   animation: slideDownFadeIn 0.5s ease-out forwards;
 }
+
+p {
+  @apply text-[16px] lg:text-[18px];
+}
