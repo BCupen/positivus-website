@@ -7,4 +7,21 @@
   --color-primary: #b9ff66;
 
   --font-body: 'Space Grotesk', sans-serif;
+
+  --radius-custom: 14px;
+}
+
+@keyframes slideDownFadeIn {
+  0% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.slide-down-fade-in {
+  animation: slideDownFadeIn 0.5s ease-out forwards;
 }
