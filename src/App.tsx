@@ -4,7 +4,7 @@ import { Home } from "./pages";
 
 const App = () => {
   return (
-    <div className="max-w-[1440px] mx-auto bg-white font-body md:px-[100px] md:pt-[60px] px-4 pt-4">
+    <div className="max-w-[1440px] mx-auto bg-white font-body md:px-[100px] md:pt-[30px] px-4 pt-2">
       <Header />
 
       <Routes>
