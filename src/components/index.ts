@@ -3,3 +3,5 @@ export * from "./Icons";
 export * from "./Navbar";
 export * from "./Button";
 export * from "./Heading";
+export * from "./Hero";
+export * from "./LogoCarousel";
