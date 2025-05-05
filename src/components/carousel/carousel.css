@@ -1,0 +1,9 @@
+@keyframes slideLeft {
+    to {
+        left: -150px;
+    }
+}
+
+.slide-left {
+    animation: slideLeft 5s linear infinite;
+}
