@@ -1,4 +1,7 @@
 import { Button, Heading } from "../components";
+import { ResponsiveImage, ResponsiveImageSize } from "react-responsive-image";
+import MobileHero from "../assets/hero.png";
+import DesktopHero from "../assets/hero-desktop.png";
 
 const Home = () => {
   const handleButtonClick = () => {};
@@ -26,7 +29,12 @@ const Home = () => {
         />
       </div>
 
-      <div className="order-2 row-span-2 bg-red-500">Image</div>
+      <div className="order-2 row-span-2">
+        <ResponsiveImage>
+          <ResponsiveImageSize default minWidth={0} path={MobileHero} />
+          <ResponsiveImageSize minWidth={768} path={DesktopHero} />
+        </ResponsiveImage>
+      </div>
     </section>
   );
 };
