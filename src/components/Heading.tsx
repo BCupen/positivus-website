@@ -19,7 +19,7 @@ export const Heading = ({
             case "h2":
                 return "font-medium text-[36px] lg:text-[40px]";
             case "h3":
-                return "font-medium text-[26px] lg:text-[30px]";
+                return "font-medium text-[24px] lg:text-[28px]";
             case "h4":
                 return "font-medium text-[20px] lg:text-[18px]";
         }

@@ -6,8 +6,9 @@ export interface ServiceCardProps {
     titleStyles?: string;
     cardStyles?: string;
     linkStyle?: {
-        bg_color: string;
+        bgColor: string;
         fill: string;
+        textColor: string;
     };
 }
 
@@ -16,29 +17,43 @@ export const ServiceCard = ({
     titleStyles = "",
     cardStyles = "",
     imgSrc,
+    linkStyle = {
+        bgColor: "white",
+        fill: "#b9ff66",
+        textColor: "text-dark",
+    },
 }: ServiceCardProps) => {
     return (
         <div
-            className={`border-dark rounded-card shadow-bold h-[300px] border p-12 ${cardStyles} flex justify-between`}
+            className={`border-dark rounded-card shadow-bold h-[300px] border p-12 ${cardStyles} flex justify-between gap-4`}
         >
-            <div className="flex flex-col justify-between">
+            <div className="flex w-full flex-col justify-between">
                 <Heading
                     as="h3"
-                    styles={`rounded px-2 ${titleStyles}`}
+                    styles="leading-tight w-full text-wrap"
                 >
-                    {title}
+                    <mark className={`rounded px-2 ${titleStyles}`}>
+                        {title}
+                    </mark>
                 </Heading>
 
-                <button className="flex items-center">
-                    <LinkCircle />
-                    <p>Learn More</p>
+                <button className="flex cursor-pointer items-center gap-4">
+                    <LinkCircle
+                        bgColor={linkStyle.bgColor}
+                        fill={linkStyle.fill}
+                    />
+                    <p
+                        className={`${linkStyle.textColor} hidden lg:block`}
+                    >
+                        Learn More
+                    </p>
                 </button>
             </div>
 
             <img
                 src={imgSrc}
                 alt="service-image"
-                className="hidden h-auto w-[210px] md:block"
+                className="h-[100px] w-auto object-cover lg:h-[150px]"
             />
         </div>
     );

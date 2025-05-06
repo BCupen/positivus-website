@@ -13,36 +13,66 @@ const services = [
         img: Service1,
         titleStyles: "text-dark bg-primary",
         cardStyles: "bg-light",
+        linkStyle: {
+            bgColor: "black",
+            fill: "#b9ff66",
+            textColor: "text-dark",
+        },
     },
     {
         title: "Pay-per-click advertising",
         img: Service2,
         titleStyles: "bg-white text-dark",
         cardStyles: "bg-primary",
+        linkStyle: {
+            bgColor: "black",
+            fill: "#b9ff66",
+            textColor: "text-dark",
+        },
     },
     {
         title: "Social media marketing",
         img: Service3,
         titleStyles: "bg-white text-dark",
         cardStyles: "bg-dark",
+        linkStyle: {
+            bgColor: "white",
+            fill: "#191a23",
+            textColor: "text-light",
+        },
     },
     {
         title: "Email marketing",
         img: Service4,
         titleStyles: "bg-primary text-dark",
         cardStyles: "bg-light",
+        linkStyle: {
+            bgColor: "black",
+            fill: "#b9ff66",
+            textColor: "text-dark",
+        },
     },
     {
         title: "Content Creation",
         img: Service5,
         titleStyles: "bg-white text-dark",
         cardStyles: "bg-primary",
+        linkStyle: {
+            bgColor: "black",
+            fill: "#b9ff66",
+            textColor: "text-dark",
+        },
     },
     {
         title: "Analytics and tracking",
         img: Service6,
         titleStyles: "bg-primary text-dark",
         cardStyles: "bg-dark",
+        linkStyle: {
+            bgColor: "white",
+            fill: "#191a23",
+            textColor: "text-light",
+        },
     },
 ];
 
@@ -71,6 +101,7 @@ export const ServicesSection = () => {
                         imgSrc={service.img}
                         titleStyles={service.titleStyles}
                         cardStyles={service.cardStyles}
+                        linkStyle={service.linkStyle}
                     />
                 ))}
             </div>
