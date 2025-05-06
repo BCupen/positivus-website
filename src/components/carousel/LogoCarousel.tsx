@@ -38,7 +38,7 @@ export const LogoCarousel = () => {
                         src={image}
                         alt={`Logo ${index + 1}`}
                         style={{
-                            animationDelay: `calc((4s * ${6 - index} * -1) + 3s)`, // 30s/6 * index
+                            animationDelay: `calc((4s * ${6 - index} * -1) + 4s)`, // 30s/6 * index
                         }}
                         className="slide-right absolute top-1/2 left-[-100%] h-auto w-[100px] -translate-y-1/2 grayscale md:w-[150px]"
                     />
