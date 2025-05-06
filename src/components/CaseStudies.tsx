@@ -1,8 +1,8 @@
-import { Heading } from ".";
+import { Heading, Link } from ".";
 
 export const CaseStudies = () => {
     return (
-        <section className="mb-10 flex flex-col lg:mb-20">
+        <section className="mb-10 flex flex-col gap-20 lg:mb-20">
             <div className="flex items-center justify-center gap-10 max-md:flex-col">
                 <Heading
                     as="h2"
@@ -16,7 +16,44 @@ export const CaseStudies = () => {
                 </p>
             </div>
 
-            <div></div>
+            <div className="lg:bg-dark rounded-card flex flex-col bg-transparent lg:flex-row lg:py-12">
+                <div className="text-light flex flex-col justify-between gap-5 px-12">
+                    <p>
+                        For a local restaurant, we implemented a
+                        targeted PPC campaign that resulted in a 50%
+                        increase in website traffic and a 25% increase
+                        in sales.
+                    </p>
+                    <button className="text-primary flex items-center gap-4">
+                        <p>Learn More</p>
+                        <Link />
+                    </button>
+                </div>
+                <div className="text-light lg:border-light flex flex-col justify-between gap-5 px-12 lg:border-x-2">
+                    <p>
+                        For a B2B software company, we developed an
+                        SEO strategy that resulted in a first page
+                        ranking for key keywords and a 200% increase
+                        in organic traffic.
+                    </p>
+                    <button className="text-primary flex items-center gap-4">
+                        <p>Learn More</p>
+                        <Link />
+                    </button>
+                </div>
+                <div className="text-light flex flex-col justify-between gap-5 px-12">
+                    <p>
+                        For a national retail chain, we created a
+                        social media marketing campaign that increased
+                        followers by 25% and generated a 20% increase
+                        in online sales.
+                    </p>
+                    <button className="text-primary flex items-center gap-4">
+                        <p>Learn More</p>
+                        <Link />
+                    </button>
+                </div>
+            </div>
         </section>
     );
 };
