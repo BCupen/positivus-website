@@ -9,8 +9,10 @@
     --font-body: "Space Grotesk", sans-serif;
 
     --radius-custom: 14px;
+    --radius-card: 45px;
 
     --shadow-subtle: 0px 4px 2px -2px rgba(0, 0, 0, 0.1);
+    --shadow-bold: 0px 5px 1px -1px rgba(0, 0, 0, 1);
 }
 
 @keyframes slideDownFadeIn {
