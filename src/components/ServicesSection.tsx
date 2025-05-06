@@ -37,7 +37,7 @@ const services = [
         cardStyles: "bg-dark",
         linkStyle: {
             bgColor: "white",
-            fill: "#191a23",
+            fill: "black",
             textColor: "text-light",
         },
     },
@@ -70,7 +70,7 @@ const services = [
         cardStyles: "bg-dark",
         linkStyle: {
             bgColor: "white",
-            fill: "#191a23",
+            fill: "black",
             textColor: "text-light",
         },
     },
