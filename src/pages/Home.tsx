@@ -1,4 +1,5 @@
 import {
+    CaseStudies,
     CTASection,
     Hero,
     LogoCarousel,
@@ -15,6 +16,8 @@ const Home = () => {
             <ServicesSection />
 
             <CTASection />
+
+            <CaseStudies />
         </main>
     );
 };

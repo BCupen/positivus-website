@@ -7,3 +7,4 @@ export * from "./Hero";
 export * from "./carousel";
 export * from "./ServicesSection";
 export * from "./CTASection";
+export * from "./CaseStudies";
