@@ -10,10 +10,9 @@ export const Hero = () => {
     const handleButtonClick = () => {};
     return (
         <section
-            className={[
-                "grid grid-cols-1 gap-8 lg:grid-cols-2",
-                "mb-10 lg:mb-20",
-            ].join(" ")}
+            className={["grid grid-cols-1 gap-8 lg:grid-cols-2"].join(
+                " ",
+            )}
         >
             <Heading as="h1" styles="order-1 text-dark">
                 Navigating the digital landscape for success

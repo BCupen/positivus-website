@@ -1,4 +1,4 @@
-import { Hero, LogoCarousel } from "../components";
+import { Hero, LogoCarousel, ServicesSection } from "../components";
 
 const Home = () => {
     return (
@@ -6,6 +6,8 @@ const Home = () => {
             <Hero />
 
             <LogoCarousel />
+
+            <ServicesSection />
         </main>
     );
 };
