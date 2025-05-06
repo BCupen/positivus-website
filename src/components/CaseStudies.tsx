@@ -16,8 +16,8 @@ export const CaseStudies = () => {
                 </p>
             </div>
 
-            <div className="lg:bg-dark rounded-card flex flex-col bg-transparent lg:flex-row lg:py-12">
-                <div className="text-light flex flex-col justify-between gap-5 px-12">
+            <div className="lg:bg-dark rounded-card flex flex-col bg-transparent max-lg:gap-5 lg:flex-row lg:py-12">
+                <div className="text-light bg-dark rounded-card flex flex-col justify-between gap-5 px-12 max-lg:py-12 lg:rounded-none">
                     <p>
                         For a local restaurant, we implemented a
                         targeted PPC campaign that resulted in a 50%
@@ -29,7 +29,7 @@ export const CaseStudies = () => {
                         <Link />
                     </button>
                 </div>
-                <div className="text-light lg:border-light flex flex-col justify-between gap-5 px-12 lg:border-x-2">
+                <div className="text-light lg:border-light bg-dark rounded-card flex flex-col justify-between gap-5 px-12 max-lg:py-12 lg:rounded-none lg:border-x-2">
                     <p>
                         For a B2B software company, we developed an
                         SEO strategy that resulted in a first page
@@ -41,7 +41,7 @@ export const CaseStudies = () => {
                         <Link />
                     </button>
                 </div>
-                <div className="text-light flex flex-col justify-between gap-5 px-12">
+                <div className="text-light bg-dark rounded-card flex flex-col justify-between gap-5 px-12 max-lg:py-12 lg:rounded-none">
                     <p>
                         For a national retail chain, we created a
                         social media marketing campaign that increased
