@@ -7,7 +7,7 @@ export const Header = () => {
     return (
         <header
             className={[
-                "sticky top-0 mb-10 w-full py-4 lg:mb-20",
+                "sticky top-0 z-20 mb-10 w-full py-4 lg:mb-20",
                 "flex items-center justify-between",
                 "shadow-subtle bg-white",
                 "slide-down-fade-in",
