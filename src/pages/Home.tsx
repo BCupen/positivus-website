@@ -4,6 +4,7 @@ import {
     Hero,
     LogoCarousel,
     ServicesSection,
+    WorkingProcess
 } from "../components";
 
 const Home = () => {
@@ -18,6 +19,8 @@ const Home = () => {
             <CTASection />
 
             <CaseStudies />
+
+            <WorkingProcess />
         </main>
     );
 };

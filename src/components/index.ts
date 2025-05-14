@@ -8,3 +8,4 @@ export * from "./carousel";
 export * from "./ServicesSection";
 export * from "./CTASection";
 export * from "./CaseStudies";
+export * from "./WorkingProcess";
