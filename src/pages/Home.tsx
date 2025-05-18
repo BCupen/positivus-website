@@ -1,28 +1,28 @@
 import {
-    CaseStudies,
-    CTASection,
-    Hero,
-    LogoCarousel,
-    ServicesSection,
-    WorkingProcess
+     CaseStudies,
+     CTASection,
+     Hero,
+     LogoCarousel,
+     ServicesSection,
+     WorkingProcess,
 } from "../components";
 
 const Home = () => {
-    return (
-        <main className="flex w-full flex-col gap-[70px]">
-            <Hero />
+     return (
+          <main className="flex w-full flex-col gap-[70px]">
+               <Hero />
 
-            <LogoCarousel />
+               <LogoCarousel />
 
-            <ServicesSection />
+               <ServicesSection />
 
-            <CTASection />
+               <CTASection />
 
-            <CaseStudies />
+               <CaseStudies />
 
-            <WorkingProcess />
-        </main>
-    );
+               <WorkingProcess />
+          </main>
+     );
 };
 
 export default Home;

@@ -2,34 +2,34 @@
 @import "tailwindcss";
 
 @theme {
-    --color-dark: #191a23;
-    --color-light: #f3f3f3;
-    --color-primary: #b9ff66;
+     --color-dark: #191a23;
+     --color-light: #f3f3f3;
+     --color-primary: #b9ff66;
 
-    --font-body: "Space Grotesk", sans-serif;
+     --font-body: "Space Grotesk", sans-serif;
 
-    --radius-custom: 14px;
-    --radius-card: 45px;
+     --radius-custom: 14px;
+     --radius-card: 45px;
 
-    --shadow-subtle: 0px 4px 2px -2px rgba(0, 0, 0, 0.1);
-    --shadow-bold: 0px 5px 1px -1px rgba(0, 0, 0, 1);
+     --shadow-subtle: 0px 4px 2px -2px rgba(0, 0, 0, 0.1);
+     --shadow-bold: 0px 5px 1px -1px rgba(0, 0, 0, 1);
 }
 
 @keyframes slideDownFadeIn {
-    0% {
-        transform: translateY(-100%);
-        opacity: 0;
-    }
-    100% {
-        transform: translateY(0);
-        opacity: 1;
-    }
+     0% {
+          transform: translateY(-100%);
+          opacity: 0;
+     }
+     100% {
+          transform: translateY(0);
+          opacity: 1;
+     }
 }
 
 .slide-down-fade-in {
-    animation: slideDownFadeIn 0.5s ease-out forwards;
+     animation: slideDownFadeIn 0.5s ease-out forwards;
 }
 
 p {
-    @apply text-[16px] lg:text-[18px];
+     @apply text-[16px] lg:text-[18px];
 }
