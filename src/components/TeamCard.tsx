@@ -6,6 +6,7 @@ export interface TeamCardProps {
      name: string;
      position: string;
      description: string;
+     index: number;
 }
 
 export const TeamCard = ({
@@ -13,12 +14,11 @@ export const TeamCard = ({
      name,
      position,
      description,
+     index,
 }: TeamCardProps) => {
      return (
           <div
-               className={
-                    "bg-light border-dark shadow-bold rounded-card border p-7 lg:p-10"
-               }
+               className={`${index > 3 ? "max-md:hidden" : "block"} bg-light border-dark shadow-bold rounded-card border p-7 lg:p-10`}
           >
                <div
                     className={

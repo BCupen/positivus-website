@@ -6,6 +6,7 @@ import Team3 from "../assets/team/team3.png";
 import Team4 from "../assets/team/team4.png";
 import Team5 from "../assets/team/team5.png";
 import Team6 from "../assets/team/team6.png";
+import { Button } from "./Button.tsx";
 
 const team = [
      {
@@ -65,11 +66,17 @@ export const TeamSection = () => {
                     </p>
                </div>
 
-               <div className="grid grid-cols-1 gap-10 md:grid-cols-2 lg:grid-cols-3">
+               <div className="grid grid-cols-1 gap-10 max-md:grid-rows-4 md:grid-cols-2 lg:grid-cols-3">
                     {team.map((member, index) => (
-                         <TeamCard key={index} {...member} />
+                         <TeamCard key={index} {...member} index={index} />
                     ))}
                </div>
+               <Button
+                    label={"See all team"}
+                    onClick={() => {}}
+                    variant={"primary"}
+                    styles={"lg:w-60 lg:self-end"}
+               />
           </section>
      );
 };
