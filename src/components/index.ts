@@ -9,3 +9,6 @@ export * from "./ServicesSection";
 export * from "./CTASection";
 export * from "./CaseStudies";
 export * from "./WorkingProcess";
+export * from "./TeamSection";
+export * from "./collapsible";
+export * from "./TeamCard.tsx";

@@ -4,6 +4,7 @@ import {
      Hero,
      LogoCarousel,
      ServicesSection,
+     TeamSection,
      WorkingProcess,
 } from "../components";
 
@@ -21,6 +22,8 @@ const Home = () => {
                <CaseStudies />
 
                <WorkingProcess />
+
+               <TeamSection />
           </main>
      );
 };
