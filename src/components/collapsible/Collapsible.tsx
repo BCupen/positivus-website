@@ -18,7 +18,7 @@ export const Collapsible = ({
      const isActive = stepNumber === activeStep;
      return (
           <div
-               className={`${isActive ? "bg-primary" : "bg-light"} shadow-bold border-dark lg:rounded-card text-dark rounded-full border p-12`}
+               className={`${isActive ? "bg-primary rounded-card" : "bg-light rounded-full"} shadow-bold border-dark lg:rounded-card text-dark border p-12`}
           >
                <div className="flex w-full items-center justify-between">
                     <span className="flex items-center gap-5">
@@ -34,7 +34,7 @@ export const Collapsible = ({
                     </button>
                </div>
                <div
-                    className={`${isActive ? "h-20 border-t border-gray-700" : "h-0"} mt-6 overflow-hidden transition-all duration-200`}
+                    className={`${isActive ? "h-52 border-t border-gray-700 lg:h-20" : "h-0"} mt-6 overflow-hidden transition-all duration-200`}
                >
                     <p className="py-6">{description}</p>
                </div>
