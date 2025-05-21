@@ -12,3 +12,4 @@ export * from "./WorkingProcess";
 export * from "./TeamSection";
 export * from "./collapsible";
 export * from "./TeamCard.tsx";
+export * from "./TestimonialSection.tsx";

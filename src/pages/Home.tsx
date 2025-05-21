@@ -5,6 +5,7 @@ import {
      LogoCarousel,
      ServicesSection,
      TeamSection,
+     TestimonialSection,
      WorkingProcess,
 } from "../components";
 
@@ -24,6 +25,8 @@ const Home = () => {
                <WorkingProcess />
 
                <TeamSection />
+
+               <TestimonialSection />
           </main>
      );
 };
