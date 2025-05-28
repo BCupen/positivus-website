@@ -1,11 +1,32 @@
 import { useState, useRef, useEffect } from "react";
+import { TestimonialCard } from "./TestimonialCard.tsx";
 
 const testimonials = [
-     { quote: "Amazing service!", name: "Alice", title: "CEO, Acme Inc." },
-     { quote: "Loved the experience.", name: "Bob", title: "UX Designer" },
-     { quote: "Would use again.", name: "Carol", title: "Software Engineer" },
-     { quote: "Highly recommend!", name: "Dan", title: "Product Manager" },
-     { quote: "Very professional.", name: "Eve", title: "Developer" },
+     {
+          quote: "We have been working with Positivus for the past year and have seen a significant increase in website traffic and leads as a result of their efforts. The team is professional, responsive, and truly cares about the success of our business. We highly recommend Positivus to any company looking to grow their online presence.",
+          name: "Alice",
+          title: "CEO, Acme Inc.",
+     },
+     {
+          quote: "We have been working with Positivus for the past year and have seen a significant increase in website traffic and leads as a result of their efforts. The team is professional, responsive, and truly cares about the success of our business. We highly recommend Positivus to any company looking to grow their online presence.",
+          name: "Bob",
+          title: "UX Designer",
+     },
+     {
+          quote: "We have been working with Positivus for the past year and have seen a significant increase in website traffic and leads as a result of their efforts. The team is professional, responsive, and truly cares about the success of our business. We highly recommend Positivus to any company looking to grow their online presence.",
+          name: "Carol",
+          title: "Software Engineer",
+     },
+     {
+          quote: "We have been working with Positivus for the past year and have seen a significant increase in website traffic and leads as a result of their efforts. The team is professional, responsive, and truly cares about the success of our business. We highly recommend Positivus to any company looking to grow their online presence.",
+          name: "Dan",
+          title: "Product Manager",
+     },
+     {
+          quote: "We have been working with Positivus for the past year and have seen a significant increase in website traffic and leads as a result of their efforts. The team is professional, responsive, and truly cares about the success of our business. We highly recommend Positivus to any company looking to grow their online presence.",
+          name: "Eve",
+          title: "Developer",
+     },
 ];
 
 const CARD_WIDTH = 600;
@@ -17,22 +38,31 @@ export const TestimonialCarousel = () => {
      const [isAnimating, setIsAnimating] = useState(false);
      const [direction, setDirection] = useState<"next" | "prev" | null>(null);
      const containerRef = useRef<HTMLDivElement>(null);
+     const [textVisible, setTextVisible] = useState(true);
 
      const getIndex = (offset: number) =>
           (centerIndex + offset + totalCards) % totalCards;
 
      const visibleOffsets = [-2, -1, 0, 1, 2]; // render more cards to allow full transition
 
+     const baseOffset = -2 * (CARD_WIDTH + GAP);
+
      const handleNext = () => {
           if (isAnimating) return;
-          setDirection("next");
-          setIsAnimating(true);
+          setTextVisible(false);
+          setTimeout(() => {
+               setDirection("next");
+               setIsAnimating(true);
+          }, 30);
      };
 
      const handlePrev = () => {
           if (isAnimating) return;
-          setDirection("prev");
-          setIsAnimating(true);
+          setTextVisible(false);
+          setTimeout(() => {
+               setDirection("prev");
+               setIsAnimating(true);
+          }, 20);
      };
 
      const handleTransitionEnd = () => {
@@ -46,7 +76,7 @@ export const TestimonialCarousel = () => {
           // Instantly snap back to center
           if (containerRef.current) {
                containerRef.current.style.transition = "none";
-               containerRef.current.style.transform = `translateX(-300px)`;
+               containerRef.current.style.transform = `translateX(${baseOffset}px)`;
                // Force reflow
                void containerRef.current.offsetWidth;
                containerRef.current.style.transition =
@@ -56,14 +86,21 @@ export const TestimonialCarousel = () => {
           setCenterIndex(newIndex);
           setDirection(null);
           setIsAnimating(false);
+
+          setTimeout(() => {
+               setTextVisible(true);
+          }, 10);
      };
 
      // Animate when direction is set
      useEffect(() => {
           if (!direction || !containerRef.current) return;
 
-          const distance = CARD_WIDTH * 1.5 + GAP;
-          const offset = direction === "next" ? -distance : distance;
+          const distance = CARD_WIDTH + GAP;
+          const offset =
+               direction === "next"
+                    ? baseOffset - distance
+                    : baseOffset + distance;
 
           containerRef.current.style.transform = `translateX(${offset}px)`;
      }, [direction]);
@@ -71,7 +108,7 @@ export const TestimonialCarousel = () => {
      return (
           <div className="bg-dark rounded-card mx-auto w-full overflow-hidden py-10 select-none">
                <div
-                    className="relative h-[300px] w-full overflow-hidden"
+                    className="relative h-[300px] w-full overflow-hidden lg:h-[450px]"
                     style={{ width: CARD_WIDTH * 3 + GAP * 2 }}
                >
                     <div
@@ -80,7 +117,7 @@ export const TestimonialCarousel = () => {
                          onTransitionEnd={handleTransitionEnd}
                          style={{
                               width: (CARD_WIDTH + GAP) * visibleOffsets.length,
-                              transform: "translateX(-300px)", // default, will animate via JS
+                              transform: `translateX(${baseOffset}px)`, // default, will animate via JS
                          }}
                     >
                          {visibleOffsets.map((offset) => {
@@ -89,17 +126,12 @@ export const TestimonialCarousel = () => {
                               return (
                                    <div
                                         key={`${offset}-${index}`}
-                                        className="h-full w-[600px] flex-shrink-0 rounded-lg bg-white p-4 shadow"
+                                        className={`dark h-full w-[600px] flex-shrink-0 rounded-lg p-4 shadow`}
                                    >
-                                        <p className="text-gray-600 italic">
-                                             “{t.quote}”
-                                        </p>
-                                        <p className="mt-2 font-semibold">
-                                             {t.name}
-                                        </p>
-                                        <p className="text-sm text-gray-500">
-                                             {t.title}
-                                        </p>
+                                        <TestimonialCard
+                                             {...t}
+                                             textVisible={textVisible}
+                                        />
                                    </div>
                               );
                          })}

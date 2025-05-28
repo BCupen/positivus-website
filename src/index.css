@@ -33,3 +33,30 @@
 p {
      @apply text-[16px] lg:text-[18px];
 }
+
+.triangle-wrapper {
+     position: absolute;
+     width: 0;
+     height: 0;
+}
+
+.triangle-down {
+     width: 0;
+     height: 0;
+     border-left: 23px solid transparent;
+     border-right: 23px solid transparent;
+     border-top: 23px solid var(--color-primary);
+     position: relative;
+}
+
+.inner-triangle {
+     position: absolute;
+     top: -23px; /* adjust so it aligns visually inside */
+     left: 50%;
+     transform: translateX(-50%);
+     width: 0;
+     height: 0;
+     border-left: 20px solid transparent;
+     border-right: 20px solid transparent;
+     border-top: 20px solid var(--color-dark);
+}
