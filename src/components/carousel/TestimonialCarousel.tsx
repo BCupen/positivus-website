@@ -45,7 +45,7 @@ export const TestimonialCarousel = () => {
 
      const visibleOffsets = [-2, -1, 0, 1, 2]; // render more cards to allow full transition
 
-     const baseOffset = -2 * (CARD_WIDTH + GAP);
+     const baseOffset = -0.5 * (CARD_WIDTH + GAP);
 
      const handleNext = () => {
           if (isAnimating) return;
@@ -103,7 +103,7 @@ export const TestimonialCarousel = () => {
                     : baseOffset + distance;
 
           containerRef.current.style.transform = `translateX(${offset}px)`;
-     }, [direction]);
+     }, [direction, baseOffset]);
 
      return (
           <div className="bg-dark rounded-card mx-auto w-full overflow-hidden py-10 select-none">
