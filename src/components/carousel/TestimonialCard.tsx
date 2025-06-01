@@ -21,7 +21,7 @@ export const TestimonialCard = ({
           >
                <div
                     className={
-                         "rounded-card border-primary relative h-[200px] w-full border p-6 lg:h-1/3 lg:p-12"
+                         "rounded-card border-primary relative min-h-[200px] w-full border p-6 lg:h-1/3 lg:p-12"
                     }
                >
                     <p

@@ -13,7 +13,7 @@ export const LogoCarousel = () => {
           <section>
                <div
                     id="carousel"
-                    className="relative mb-10 flex h-[50px] w-[100%] overflow-hidden md:mb-20 md:h-[70px] md:min-w-[900px]"
+                    className="relative mb-10 flex h-[50px] w-[100%] overflow-hidden md:mb-20 md:h-[70px] lg:min-w-[900px]"
                >
                     {images.map((image, index) => (
                          <img

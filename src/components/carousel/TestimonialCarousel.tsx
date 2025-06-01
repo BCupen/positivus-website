@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect, useMemo } from "react";
 import { TestimonialCard } from "./TestimonialCard.tsx";
 
 const testimonials = [
@@ -29,23 +29,28 @@ const testimonials = [
      },
 ];
 
-const CARD_WIDTH = 600;
-const GAP = 16;
-const totalCards = testimonials.length;
-
 export const TestimonialCarousel = () => {
      const [centerIndex, setCenterIndex] = useState(0);
      const [isAnimating, setIsAnimating] = useState(false);
      const [direction, setDirection] = useState<"next" | "prev" | null>(null);
      const containerRef = useRef<HTMLDivElement>(null);
+     const containerWidthRef = useRef<HTMLDivElement>(null);
+     const [cardWidth, setCardWidth] = useState(600); // default
+     const [offsetFactor, setOffsetFactor] = useState<number>(0.5);
+
      const [textVisible, setTextVisible] = useState(true);
+
+     const GAP = 16;
+     const totalCards = testimonials.length;
 
      const getIndex = (offset: number) =>
           (centerIndex + offset + totalCards) % totalCards;
 
      const visibleOffsets = [-2, -1, 0, 1, 2]; // render more cards to allow full transition
 
-     const baseOffset = -0.5 * (CARD_WIDTH + GAP);
+     const baseOffset = useMemo(() => {
+          return -offsetFactor * (cardWidth + GAP);
+     }, [offsetFactor, cardWidth, GAP]);
 
      const handleNext = () => {
           if (isAnimating) return;
@@ -96,7 +101,7 @@ export const TestimonialCarousel = () => {
      useEffect(() => {
           if (!direction || !containerRef.current) return;
 
-          const distance = CARD_WIDTH + GAP;
+          const distance = cardWidth + GAP;
           const offset =
                direction === "next"
                     ? baseOffset - distance
@@ -105,18 +110,38 @@ export const TestimonialCarousel = () => {
           containerRef.current.style.transform = `translateX(${offset}px)`;
      }, [direction, baseOffset]);
 
+     useEffect(() => {
+          const updateWidth = () => {
+               const screenWidth = window.innerWidth;
+               if (!containerWidthRef.current) return;
+               if (screenWidth < 1025) {
+                    setCardWidth(containerWidthRef?.current.offsetWidth);
+                    setOffsetFactor(1);
+               } else {
+                    setCardWidth(600); // desktop
+                    setOffsetFactor(0.5);
+               }
+          };
+          updateWidth();
+          window.addEventListener("resize", updateWidth);
+          return () => window.removeEventListener("resize", updateWidth);
+     }, []);
+
      return (
-          <div className="bg-dark rounded-card mx-auto w-full overflow-hidden py-10 select-none">
+          <div
+               className="bg-dark rounded-card mx-auto w-full overflow-hidden py-10 select-none"
+               ref={containerWidthRef}
+          >
                <div
-                    className="relative h-[300px] w-full overflow-hidden lg:h-[450px]"
-                    style={{ width: CARD_WIDTH * 3 + GAP * 2 }}
+                    className="relative h-[450px] w-full overflow-hidden"
+                    style={{ width: cardWidth * 3 + GAP * 2 }}
                >
                     <div
                          ref={containerRef}
                          className="absolute top-0 left-0 flex h-full gap-4 transition-transform duration-500 ease-in-out"
                          onTransitionEnd={handleTransitionEnd}
                          style={{
-                              width: (CARD_WIDTH + GAP) * visibleOffsets.length,
+                              width: (cardWidth + GAP) * visibleOffsets.length,
                               transform: `translateX(${baseOffset}px)`, // default, will animate via JS
                          }}
                     >
@@ -126,7 +151,10 @@ export const TestimonialCarousel = () => {
                               return (
                                    <div
                                         key={`${offset}-${index}`}
-                                        className={`dark h-full w-[600px] flex-shrink-0 rounded-lg p-4 shadow`}
+                                        className={`dark h-full flex-shrink-0 rounded-lg p-4 shadow`}
+                                        style={{
+                                             width: cardWidth,
+                                        }}
                                    >
                                         <TestimonialCard
                                              {...t}
