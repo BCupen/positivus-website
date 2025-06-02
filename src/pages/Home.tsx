@@ -8,6 +8,7 @@ import {
      TestimonialSection,
      WorkingProcess,
 } from "../components";
+import { ContactSection } from "../components/ContactSection.tsx";
 
 const Home = () => {
      return (
@@ -27,6 +28,8 @@ const Home = () => {
                <TeamSection />
 
                <TestimonialSection />
+
+               <ContactSection />
           </main>
      );
 };
