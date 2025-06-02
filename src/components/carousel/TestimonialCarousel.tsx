@@ -168,7 +168,11 @@ export const TestimonialCarousel = () => {
                </div>
 
                <div className="mx-auto mt-4 flex w-full max-w-md justify-between">
-                    <button onClick={handlePrev} disabled={isAnimating}>
+                    <button
+                         onClick={handlePrev}
+                         disabled={isAnimating}
+                         className={"cursor-pointer disabled:opacity-20"}
+                    >
                          <ArrowLeft />
                     </button>
                     <div className={"flex items-center gap-4"}>
@@ -176,7 +180,11 @@ export const TestimonialCarousel = () => {
                               <DotIndictor isActive={index === centerIndex} />
                          ))}
                     </div>
-                    <button onClick={handleNext} disabled={isAnimating}>
+                    <button
+                         onClick={handleNext}
+                         disabled={isAnimating}
+                         className={"cursor-pointer disabled:opacity-20"}
+                    >
                          <ArrowRight />
                     </button>
                </div>

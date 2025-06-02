@@ -7,8 +7,9 @@ import {
      TeamSection,
      TestimonialSection,
      WorkingProcess,
+     ContactSection,
+     Footer,
 } from "../components";
-import { ContactSection } from "../components/ContactSection.tsx";
 
 const Home = () => {
      return (
@@ -30,6 +31,8 @@ const Home = () => {
                <TestimonialSection />
 
                <ContactSection />
+
+               <Footer />
           </main>
      );
 };
