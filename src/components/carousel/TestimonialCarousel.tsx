@@ -1,5 +1,6 @@
 import { useState, useRef, useEffect, useMemo } from "react";
 import { TestimonialCard } from "./TestimonialCard.tsx";
+import { ArrowLeft, ArrowRight, DotIndictor } from "../Icons.tsx";
 
 const testimonials = [
      {
@@ -166,20 +167,17 @@ export const TestimonialCarousel = () => {
                     </div>
                </div>
 
-               <div className="mt-4 flex justify-center gap-4">
-                    <button
-                         onClick={handlePrev}
-                         disabled={isAnimating}
-                         className="rounded bg-gray-200 px-4 py-2 hover:bg-gray-300 disabled:opacity-50"
-                    >
-                         Prev
+               <div className="mx-auto mt-4 flex w-full max-w-md justify-between">
+                    <button onClick={handlePrev} disabled={isAnimating}>
+                         <ArrowLeft />
                     </button>
-                    <button
-                         onClick={handleNext}
-                         disabled={isAnimating}
-                         className="rounded bg-gray-200 px-4 py-2 hover:bg-gray-300 disabled:opacity-50"
-                    >
-                         Next
+                    <div className={"flex items-center gap-4"}>
+                         {testimonials.map((_, index) => (
+                              <DotIndictor isActive={index === centerIndex} />
+                         ))}
+                    </div>
+                    <button onClick={handleNext} disabled={isAnimating}>
+                         <ArrowRight />
                     </button>
                </div>
           </div>
